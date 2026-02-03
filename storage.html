@@ -144,6 +144,21 @@
 					<button type="button" class="btn btn-primary btn-lg" style="margin-top: 16px; width: 100%;" data-toggle="modal" data-target="#miraModal">View profile</button>
 				</div>
 			</div>
+			<div class="storage-notes">
+				<div class="storage-notes__header">
+					<h3>Quick Text Storage</h3>
+					<p>Keep snippets, prompts, or character notes in your browser. Your text is saved locally on this device.</p>
+				</div>
+				<div class="storage-notes__body">
+					<label for="storageNotes" class="storage-notes__label">Notes</label>
+					<textarea id="storageNotes" class="storage-notes__textarea" rows="8" placeholder="Type your notes here..."></textarea>
+					<div class="storage-notes__actions">
+						<button type="button" class="btn btn-primary" id="saveNotes">Save notes</button>
+						<button type="button" class="btn btn-outline-secondary" id="clearNotes">Clear</button>
+					</div>
+					<p class="storage-notes__status" id="notesStatus" aria-live="polite"></p>
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -224,5 +239,41 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		const notesKey = "minhfolio-storage-notes";
+		const notesField = document.getElementById("storageNotes");
+		const saveButton = document.getElementById("saveNotes");
+		const clearButton = document.getElementById("clearNotes");
+		const status = document.getElementById("notesStatus");
+
+		const setStatus = (message) => {
+			status.textContent = message;
+			if (message) {
+				setTimeout(() => {
+					status.textContent = "";
+				}, 2000);
+			}
+		};
+
+		const loadNotes = () => {
+			const savedNotes = localStorage.getItem(notesKey);
+			if (savedNotes) {
+				notesField.value = savedNotes;
+			}
+		};
+
+		saveButton.addEventListener("click", () => {
+			localStorage.setItem(notesKey, notesField.value.trim());
+			setStatus("Notes saved.");
+		});
+
+		clearButton.addEventListener("click", () => {
+			notesField.value = "";
+			localStorage.removeItem(notesKey);
+			setStatus("Notes cleared.");
+		});
+
+		loadNotes();
+	</script>
 </body>
 </html>
