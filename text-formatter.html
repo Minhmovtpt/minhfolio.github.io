@@ -34,8 +34,7 @@
 		<!-- Brand/logo -->
 
 		  <a class="navbar-brand logo" href="index.html">
-			
-			<span alt="logo" href="index.html" style="width:120px; margin-left: 70px ;">minhmo</span>
+			<span style="width:120px; margin-left: 70px;">minhmo</span>
 		  </a>
 
 		<!-- Links -->
@@ -114,9 +113,27 @@
 			const result = document.getElementById('resultText');
 			result.select();
 			result.setSelectionRange(0, 99999);
-			navigator.clipboard.writeText(result.value).then(() => {
-				updateStatus('Đã sao chép kết quả.');
-			});
+			const text = result.value;
+
+			const fallbackCopy = () => {
+				let copied = false;
+				try {
+					copied = document.execCommand('copy');
+				} catch (error) {
+					copied = false;
+				}
+				updateStatus(copied ? 'Đã sao chép kết quả.' : 'Không thể sao chép. Vui lòng thử lại.');
+			};
+
+			if (navigator.clipboard && window.isSecureContext) {
+				navigator.clipboard.writeText(text).then(() => {
+					updateStatus('Đã sao chép kết quả.');
+				}).catch(() => {
+					fallbackCopy();
+				});
+			} else {
+				fallbackCopy();
+			}
 		}
 
 		function updateStatus(message) {

@@ -28,7 +28,9 @@ p  {color: #231F25;
 a  {color: #231F25;
     font-family: 'Zen Kaku Gothic Antique', sans-serif;
     font-size: 18px;    
-    font-weight: 500;  margin-left: 20px;   }
+    font-weight: 500;  }
+
+.navbar .nav-link { margin-left: 20px; }
 
 a:hover { color: #E75A52; }
 
@@ -168,11 +170,11 @@ html {
 
 body {
   position: relative;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
 }
 
 /* ====== Input field ====== */
 
-body { font-family: 'Zen Kaku Gothic Antique', sans-serif;}
 * {box-sizing: border-box;}
 
 input[type=text], select, textarea {
