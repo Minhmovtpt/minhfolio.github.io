@@ -7,7 +7,7 @@
 
 h1 {color: #E75A52;
     font-family: 'Zen Kaku Gothic Antique', sans-serif;
-    font-size: 52px;    
+    font-size: 56px;    
     font-weight: 900;   }
 
 h2 {color: #231F25;
@@ -43,6 +43,16 @@ aside {color: #231F25;
     font-size: 32px;    
     font-weight: 500;  font-family: 'Galada', cursive;  }
 .logo:hover { color: #E75A52; }  
+
+:root {
+  --color-ink: #231F25;
+  --color-accent: #E75A52;
+  --color-teal: #69CAD9;
+  --color-surface: #ffffff;
+  --color-muted: #f7f8fb;
+  --shadow-soft: 0 12px 30px rgba(35, 31, 37, 0.08);
+  --shadow-card: 0 16px 40px rgba(35, 31, 37, 0.12);
+}
 /* ======= Img ======= */ 
 
 img {display: block;
@@ -69,12 +79,17 @@ img {display: block;
 .btn-primary {
     color: #F7F8F8;
     background-color: #E75A52;
-    border-color: #E75A52; 
+    border-color: #E75A52;
+    border-radius: 999px;
+    box-shadow: 0 10px 20px rgba(231, 90, 82, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #F7F8F8;
     background-color: #69CAD9;
     border-color: #69CAD9;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(105, 202, 217, 0.3);
 }
 
 button {color: #231F25;
@@ -114,6 +129,26 @@ button:hover {color:  #F7F8F8;}
 }
 
 section {background-color: #F7F8F8;}
+
+body {
+  position: relative;
+  background: var(--color-muted);
+  color: var(--color-ink);
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(231, 90, 82, 0.08), rgba(105, 202, 217, 0.12));
+}
+
+.section-title {
+  text-align: center;
+  color: var(--color-accent);
+  letter-spacing: 2px;
+}
 
  a.active.nav-link{color: #E75A52!important;}
 
@@ -180,8 +215,8 @@ body {
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid rgba(35, 31, 37, 0.1);
+  border-radius: 16px;
   box-sizing: border-box;
   margin-top: 6px;
   margin-bottom: 16px;
@@ -344,34 +379,77 @@ left: 0px;
 
 
 
+.site-nav {
+  height: 72px;
+  background-color: rgba(247, 248, 248, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 12px 24px rgba(35, 31, 37, 0.06);
+}
+
 header.nav-fixed {
-    width: 100%;
-    position: fixed;
-    transition: 0.3s ease-in-out;
+  width: 100%;
+  position: fixed;
+  transition: 0.3s ease-in-out;
 }
 
 .nav-active {
-    background-color:#fff;
-    box-shadow: 5px -1px 12px -5px grey;
+  background-color:#fff;
+  box-shadow: 5px -1px 12px -5px grey;
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+  margin-left: 24px;
+  font-weight: 700;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+  transform-origin: left;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  transform: scaleX(1);
 }
 
 
 /*==== card ===*/
 
 .card { background-color: #fff;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: var(--shadow-soft);
   transition: 0.3s;
-  border-radius: 5px; /* 5px rounded corners */
+  border-radius: 16px; /* 5px rounded corners */
 }
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
 }
 
 /* Add some padding inside the card container */
 .container {
   padding: 2px 16px;
+}
+
+.form-control {
+  border-radius: 18px;
+  border: 1px solid rgba(35, 31, 37, 0.12);
+  box-shadow: 0 8px 20px rgba(35, 31, 37, 0.06);
+}
+
+.form-control:focus {
+  border-color: rgba(231, 90, 82, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(231, 90, 82, 0.15);
 }
 
 /*==== Progress bar ===*/
@@ -422,3 +500,13 @@ header.nav-fixed {
         height: 100%;
         object-fit: cover;
       }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 42px;
+  }
+
+  .navbar-nav .nav-link {
+    margin-left: 12px;
+  }
+}
