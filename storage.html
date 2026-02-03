@@ -74,24 +74,6 @@
 					<p style="font-size: 18px;">A curated library for LLM OOC character cards, organized with story context, identities, and visual styling details for fast reference.</p>
 				</div>
 			</div>
-			<div class="row storage-controls">
-				<div class="col-lg-4 col-md-6">
-					<label for="characterSearch"><strong>Search</strong></label>
-					<input id="characterSearch" type="text" placeholder="Search by name, role, or tag...">
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<label for="characterFilter"><strong>Filter</strong></label>
-					<select id="characterFilter">
-						<option value="">All categories</option>
-						<option value="archivist">Archivist</option>
-						<option value="guardian">Guardian</option>
-						<option value="culinary">Culinary</option>
-					</select>
-				</div>
-				<div class="col-lg-5 d-flex align-items-end justify-content-lg-end storage-actions">
-					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newCardModal">Create new card</button>
-				</div>
-			</div>
 			<div class="character-grid" style="margin-top: 32px;">
 				<div class="character-card">
 					<div class="d-flex align-items-center" style="gap: 16px;">
@@ -114,10 +96,7 @@
 						<span class="character-tag">mythology</span>
 						<span class="character-tag">quiet leader</span>
 					</div>
-					<div class="card-actions">
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ayaModal">View profile</button>
-						<button type="button" class="btn btn-outline-secondary btn-lg">Edit</button>
-					</div>
+					<button type="button" class="btn btn-primary btn-lg" style="margin-top: 16px; width: 100%;" data-toggle="modal" data-target="#ayaModal">View profile</button>
 				</div>
 				<div class="character-card">
 					<div class="d-flex align-items-center" style="gap: 16px;">
@@ -140,10 +119,7 @@
 						<span class="character-tag">guardian</span>
 						<span class="character-tag">negotiator</span>
 					</div>
-					<div class="card-actions">
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#idrisModal">View profile</button>
-						<button type="button" class="btn btn-outline-secondary btn-lg">Edit</button>
-					</div>
+					<button type="button" class="btn btn-primary btn-lg" style="margin-top: 16px; width: 100%;" data-toggle="modal" data-target="#idrisModal">View profile</button>
 				</div>
 				<div class="character-card">
 					<div class="d-flex align-items-center" style="gap: 16px;">
@@ -166,72 +142,11 @@
 						<span class="character-tag">empathy</span>
 						<span class="character-tag">community</span>
 					</div>
-					<div class="card-actions">
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#miraModal">View profile</button>
-						<button type="button" class="btn btn-outline-secondary btn-lg">Edit</button>
-					</div>
+					<button type="button" class="btn btn-primary btn-lg" style="margin-top: 16px; width: 100%;" data-toggle="modal" data-target="#miraModal">View profile</button>
 				</div>
 			</div>
 		</div>
 	</section>
-
-	<div class="modal fade character-modal" id="newCardModal" tabindex="-1" role="dialog" aria-labelledby="newCardModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3 class="modal-title" id="newCardModalLabel">Create new character card</h3>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form class="character-form">
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="characterName"><strong>Name</strong></label>
-								<input id="characterName" type="text" placeholder="Enter character name">
-							</div>
-							<div class="form-group col-md-6">
-								<label for="characterRole"><strong>Role</strong></label>
-								<input id="characterRole" type="text" placeholder="e.g. Signal knight">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="characterAvatar"><strong>Avatar URL</strong></label>
-							<input id="characterAvatar" type="text" placeholder="Paste image link">
-						</div>
-						<div class="form-group">
-							<label for="characterBackground"><strong>Background story</strong></label>
-							<textarea id="characterBackground" rows="3" placeholder="Write the background story..."></textarea>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-6">
-								<label for="characterPersonality"><strong>Personality traits</strong></label>
-								<textarea id="characterPersonality" rows="3" placeholder="Calm, observant, quietly humorous."></textarea>
-							</div>
-							<div class="form-group col-md-6">
-								<label for="characterIdentity"><strong>Identity traits</strong></label>
-								<textarea id="characterIdentity" rows="3" placeholder="Non-binary, 29, coastal citizen."></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="characterPhysical"><strong>Physical appearance traits</strong></label>
-							<textarea id="characterPhysical" rows="2" placeholder="Short silver bob, deep-set green eyes."></textarea>
-						</div>
-						<div class="form-group">
-							<label for="characterClothing"><strong>Clothing tags</strong></label>
-							<input id="characterClothing" type="text" placeholder="Utility trench, waterproof boots">
-						</div>
-						<div class="form-group">
-							<label for="characterTasks"><strong>Background tasks</strong></label>
-							<textarea id="characterTasks" rows="2" placeholder="Catalog artifacts, decode signals."></textarea>
-						</div>
-						<button type="button" class="btn btn-primary btn-lg">Save card</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<div class="modal fade character-modal" id="ayaModal" tabindex="-1" role="dialog" aria-labelledby="ayaModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
