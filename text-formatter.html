@@ -68,7 +68,7 @@
 			<div class="row">
 				<div class="col-md-8">
 					<h2 style="color: #E75A52;"><span class="rac"></span><br><br>TEXT FORMATTER</h2>
-					<p style="font-size: 18px;">Dán văn bản vào ô bên dưới để chuyển đổi. Mỗi dòng nội dung sẽ được bọc trong dấu <strong>[...]</strong>.</p>
+					<p style="font-size: 18px;">Dán văn bản vào ô bên dưới để chuyển đổi. Mỗi dòng nội dung sẽ được thêm tiền tố <strong>[Heading: Bodytext_details]</strong>.</p>
 				</div>
 			</div>
 			<div class="row" style="margin-top: 40px;">
@@ -99,8 +99,8 @@
 				.map((line) => line.trim())
 				.filter((line) => line.length > 0);
 
-				const formatted = lines
-					.map((line) => `[${line}]`)
+			const formatted = lines
+				.map((line) => `[Heading: Bodytext_details] ${line}`)
 				.join('\n');
 
 			document.getElementById('resultText').value = formatted;
