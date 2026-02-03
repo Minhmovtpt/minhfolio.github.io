@@ -51,6 +51,7 @@ img {display: block;
 .uil {font-size: 24px; padding-right: 30px;}
 
 .icon {font-size: 50px; color: #E75A52}
+.icon-large {font-size: 100px;}
 
 /* ======= Class add ======= */
 .center { text-align: center;
@@ -263,7 +264,7 @@ left: 0px;
   padding: 0px 0;
   text-align: center;
   background-color: transparent;
-  margin-top: 0px; visibility: Hiden;
+  margin-top: 0px; visibility: hidden;
 }   
 
 
