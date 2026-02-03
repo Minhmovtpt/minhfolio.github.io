@@ -28,7 +28,9 @@ p  {color: #231F25;
 a  {color: #231F25;
     font-family: 'Zen Kaku Gothic Antique', sans-serif;
     font-size: 18px;    
-    font-weight: 500;  margin-left: 20px;   }
+    font-weight: 500;  }
+
+.navbar .nav-link { margin-left: 20px; }
 
 a:hover { color: #E75A52; }
 
@@ -201,9 +203,13 @@ html {
 }
 .line-h { display: block; height: fit-content; width: 1px; background-color: #231f25;  margin-left: auto; margin-right:auto  }
 
+body {
+  position: relative;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
 /* ====== Input field ====== */
 
-body { font-family: 'Zen Kaku Gothic Antique', sans-serif;}
 * {box-sizing: border-box;}
 
 input[type=text], select, textarea {
@@ -228,6 +234,79 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #45a049;
+}
+
+/* ======= Storage page ======= */
+.storage-hero {
+  padding-top: 120px;
+  padding-bottom: 40px;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.character-card {
+  border: 1px solid rgba(35, 31, 37, 0.08);
+  border-radius: 16px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(35, 31, 37, 0.06);
+  height: 100%;
+}
+
+.character-card h3 {
+  font-size: 22px;
+}
+
+.card-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  object-fit: cover;
+  margin-left: 0;
+}
+
+.trait-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 16px;
+}
+
+.trait-list li {
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.character-tag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: rgba(105, 202, 217, 0.15);
+  color: #231F25;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.character-modal .modal-content {
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.character-modal .modal-header {
+  border-bottom: none;
+}
+
+.character-modal .modal-body h4 {
+  margin-top: 16px;
+  font-size: 18px;
 }
 
 .container1 {
