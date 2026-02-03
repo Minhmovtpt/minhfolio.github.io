@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Icons pack -->
+	<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+	<!-- Basic codes of Bootstrap -->
+	<!-- Basic CDM codes -->
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<!-- css -->
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/animation.css">
+
+	<!-- title -->
+	<title> Text Formatter - Minhfolio </title>
+	<link rel="icon" type="image/x-icon" href="assets/img/logo.png">
+</head>
+
+<!-- Navbar -->
+<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color: #F7F8F8;">
+
+    <nav class="navbar navbar-expand-sm fixed-top nav-fixed" style="background-color: #F7F8F8; height: 64px;"> 
+
+		<!-- Brand/logo -->
+
+		  <a class="navbar-brand logo" href="index.html">
+			
+			<span alt="logo" href="index.html" style="width:120px; margin-left: 70px ;">minhmo</span>
+		  </a>
+
+		<!-- Links -->
+
+		  <ul class="navbar-nav ml-auto" style="margin-right: 70px;">
+			  
+			  <li class="nav-item">
+					  <a class="nav-link" href="index.html#home">Home</a>
+			  </li>
+			  <li class="nav-item">
+					  <a class="nav-link" href="index.html#about">About me</a>
+			  </li>
+			  <li class="nav-item">
+					  <a class="nav-link" href="index.html#resume">Resume</a>
+			  </li>
+			  <li class="nav-item">
+					  <a class="nav-link" href="index.html#project">Projects</a>
+			  </li>
+			  <li class="nav-item">
+					  <a class="nav-link active" href="text-formatter.html">Text Formatter</a>
+			  </li>
+			  <li class="nav-item">
+					  <a class="nav-link" href="index.html#contact">Contact</a>
+			  </li> 
+		  </ul>
+	</nav>	
+
+	<section class="section" style="padding-top: 120px; padding-bottom: 80px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<h2 style="color: #E75A52;"><span class="rac"></span><br><br>TEXT FORMATTER</h2>
+					<p style="font-size: 18px;">Dán văn bản vào ô bên dưới để chuyển đổi. Mỗi dòng nội dung sẽ được bọc trong dấu <strong>[...]</strong>.</p>
+				</div>
+			</div>
+			<div class="row" style="margin-top: 40px;">
+				<div class="col-md-6">
+					<label for="sourceText"><strong>Văn bản gốc</strong></label>
+					<textarea id="sourceText" rows="12" placeholder="Nhập từng dòng nội dung..."></textarea>
+					<button type="button" class="btn btn-primary btn-lg" style="width: 220px;" onclick="formatText()">Chuyển đổi</button>
+				</div>
+				<div class="col-md-6">
+					<label for="resultText"><strong>Kết quả</strong></label>
+					<textarea id="resultText" rows="12" readonly placeholder="Kết quả sẽ hiển thị tại đây..."></textarea>
+					<button type="button" class="btn btn-primary btn-lg" style="width: 220px;" onclick="copyResult()">Sao chép</button>
+				</div>
+			</div>
+			<div class="row" style="margin-top: 20px;">
+				<div class="col">
+					<p id="statusMessage" style="font-size: 16px; color: #69CAD9;"></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		function formatText() {
+			const source = document.getElementById('sourceText').value;
+			const lines = source
+				.split(/\r?\n/)
+				.map((line) => line.trim())
+				.filter((line) => line.length > 0);
+
+				const formatted = lines
+					.map((line) => `[${line}]`)
+				.join('\n');
+
+			document.getElementById('resultText').value = formatted;
+			updateStatus(lines.length ? 'Đã chuyển đổi ' + lines.length + ' dòng.' : 'Không có nội dung để chuyển đổi.');
+		}
+
+		function copyResult() {
+			const result = document.getElementById('resultText');
+			result.select();
+			result.setSelectionRange(0, 99999);
+			navigator.clipboard.writeText(result.value).then(() => {
+				updateStatus('Đã sao chép kết quả.');
+			});
+		}
+
+		function updateStatus(message) {
+			document.getElementById('statusMessage').textContent = message;
+		}
+	</script>
+</body>
+</html>
