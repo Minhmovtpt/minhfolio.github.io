@@ -309,6 +309,54 @@ input[type=submit]:hover {
   font-size: 18px;
 }
 
+.storage-notes {
+  margin-top: 48px;
+  padding: 28px;
+  border-radius: 18px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(35, 31, 37, 0.08);
+  border: 1px solid rgba(35, 31, 37, 0.08);
+}
+
+.storage-notes__header h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.storage-notes__header p {
+  margin-bottom: 24px;
+  color: #4b4653;
+}
+
+.storage-notes__label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.storage-notes__textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(35, 31, 37, 0.2);
+  padding: 12px 14px;
+  resize: vertical;
+  min-height: 160px;
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.storage-notes__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.storage-notes__status {
+  margin-top: 12px;
+  color: #4b4653;
+  font-size: 14px;
+}
+
 .container1 {
   border-radius: 5px;
   background-color: #f2f2f2;
