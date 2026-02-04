@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/animation.css">
+	<link rel="stylesheet" href="assets/css/game.css">
+	<title>Veiled Petition - Minhfolio</title>
+	<link rel="icon" type="image/x-icon" href="assets/img/logo.png">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color: #F7F8F8;">
+	<nav class="navbar navbar-expand-sm fixed-top nav-fixed" style="background-color: #F7F8F8; height: 64px;">
+		<a class="navbar-brand logo" href="index.html">
+			<span style="width:120px; margin-left: 70px;">minhmo</span>
+		</a>
+		<ul class="navbar-nav ml-auto" style="margin-right: 70px;">
+			<li class="nav-item">
+				<a class="nav-link" href="index.html#home">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="index.html#about">About me</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="index.html#resume">Resume</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="index.html#project">Projects</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="text-formatter.html">Text Formatter</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="storage.html">Character Storage</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" href="text-game.html">Veiled Petition</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="index.html#contact">Contact</a>
+			</li>
+		</ul>
+	</nav>
+
+	<section class="section" style="padding-top: 110px; padding-bottom: 80px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 style="color: #E75A52;"><span class="rac"></span><br><br>VEILED PETITION</h2>
+					<p style="font-size: 18px;">Enter the Luminous Guild as a new operative and answer the Inkbound Attendant to begin the first contract. All outputs keep proper names intact.</p>
+				</div>
+			</div>
+
+			<div class="row" style="margin-top: 30px;">
+				<div class="col-lg-7">
+					<div class="game-panel">
+						<h4>Scene Log</h4>
+						<div id="gameLog" class="game-log" aria-live="polite"></div>
+						<div class="input-row">
+							<input id="playerInput" type="text" class="form-control" placeholder="Respond here..." />
+							<button id="submitInput" type="button" class="btn btn-primary btn-lg">Submit</button>
+						</div>
+						<p id="inputHint" class="hint"></p>
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<div class="game-panel">
+						<h4>Operative Profile</h4>
+						<div class="profile-grid">
+							<div>
+								<label for="playerName">Name</label>
+								<input id="playerName" type="text" class="form-control" placeholder="Your name" />
+							</div>
+							<div>
+								<label for="playerGender">Gender</label>
+								<select id="playerGender" class="form-control">
+									<option value="">Select</option>
+									<option value="woman">Woman</option>
+									<option value="man">Man</option>
+									<option value="nonbinary">Nonbinary</option>
+								</select>
+							</div>
+							<div>
+								<label for="playerBearing">Bearing</label>
+								<input id="playerBearing" type="text" class="form-control" placeholder="Quiet, defiant, etc." />
+							</div>
+						</div>
+						<button id="startSession" type="button" class="btn btn-primary btn-lg" style="margin-top: 16px;">Begin the Session</button>
+						<div class="status-card" style="margin-top: 20px;">
+							<h5>Status</h5>
+							<p id="statusSummary">New Veiled Operative. Max Arousal 60. Sigils 0. Shards 0. Rank Unranked.</p>
+							<p id="fetishSummary">Required Fetish Tag: — | Resisted Fetish Tag: —</p>
+						</div>
+					</div>
+
+					<div class="game-panel" style="margin-top: 20px;">
+						<h4>Contract</h4>
+						<pre id="contractText" class="contract-box">Awaiting the Inkbound Attendant.</pre>
+						<div class="button-row">
+							<button id="acceptContract" class="btn btn-primary btn-lg" disabled>Accept Contract</button>
+							<button id="declineContract" class="btn btn-outline-secondary btn-lg" disabled>Decline</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="assets/js/text-game.js"></script>
+</body>
+</html>
